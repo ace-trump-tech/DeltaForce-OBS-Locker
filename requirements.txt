@@ -1,0 +1,4 @@
+requests==2.31.0
+tkinter   # Python内置，无需安装
+pyyaml==6.0.1
+tqdm==4.66.1
