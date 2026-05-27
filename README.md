@@ -33,6 +33,13 @@
    访问 [obsproject.com](https://obsproject.com) 下载并安装最新版（28.0+）。
 
 2. **获取插件**  
+
+   > ❗ **还没有GitHub账号？**  
+   > 注册GitHub账号是使用本插件的第一步，因为下面需要用到 **Star**、**Fork** 等功能。  
+   > 👉 请先查看这篇详细教程：[手把手教你注册GitHub账号——开启开源世界的第一步](https://blog.csdn.net/qq_63129682/article/details/161460238)  
+   > 教程包含邮箱准备 → 填写信息 → 邮箱验证 → 个性化设置 → 选择免费计划 → 登录使用等全流程。  
+   > **注册完成后，再回来继续下面的操作。**
+
    - 点击本仓库右上角的 **Star ⭐** → **Fork** → 然后 **Download ZIP** 解压。  
    - 或直接 `git clone https://github.com/yourusername/DeltaForce-OBS-Locker.git`
 
@@ -150,4 +157,5 @@ MIT License – 欢迎二次开发，但请勿用于商业作弊软件。
 
 ---
 
-*最后更新：2026-05-26*
+*最后更新：2026-05-27*
+
