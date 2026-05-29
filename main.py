@@ -5,30 +5,34 @@ from tkinter import messagebox
 import webbrowser
 import yaml
 
+# Import decryption functions from the data subdirectory
+from data.crypto import get_ok_message, get_warn_message
+
 def main():
-    # Load configuration
+    # Load configuration from YAML file
     with open("config.yaml", "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
-    
+
     # Create hidden root window for dialog
     root = tk.Tk()
     root.withdraw()
-    
-    # Show warning dialog
+
+    # Show the initial warning dialog
     result = messagebox.askyesno(
         title=config['warning_message']['title'],
         message=config['warning_message']['text'],
         icon='warning'
     )
-    
+
     if result:
         # User chose to download the promoted game
         webbrowser.open(config['target_game']['download_page'])
-        messagebox.showinfo("提示", "感谢您的选择！但是拒绝外挂，不要来污染三角洲的环境，这边建议去《暗区突围》呢亲。")
+        # Show the message retrieved from binary file
+        messagebox.showinfo("Notice", get_ok_message())
     else:
         # User insists on using cheats
-        messagebox.showwarning("风险提示", "使用外挂极易导致账号永久封禁，并且破坏其他玩家的体验。请三思！")
-    
+        messagebox.showwarning("Risk Warning", get_warn_message())
+
     root.destroy()
     sys.exit(0)
 
