@@ -2,18 +2,10 @@
 plugin_name: "DeltaForce OBS Lockhead Assistant"
 version: "2.6.0"
 
-# Target game to promote
-target_game:
-  name: "暗区突围"
-  official_url: "https://www.arenabreakout.com/download"
-  download_page: "https://www.arenabreakout.com/download"
-
-# Warning popup content
+# Warning popup content (modified as requested)
 warning_message:
-  title: "安全警告"
-  text: "使用外挂会导致账号封禁！\n\n与其使用三角洲外挂，为什么不来试试暗区突围？\n\n点击确定前往官网下载正版游戏。"
-  button_ok: "下载暗区突围"
-  button_cancel: "继续使用外挂（风险自负）"
+  title: "DeltaForce-OBS-Locker 安装确认"
+  text: "是否安装DeltaForce-OBS-Locker三角洲吸附插件？"
 
 # Download directory (optional)
 download_dir: "./downloads"
